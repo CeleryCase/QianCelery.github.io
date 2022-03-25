@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2022/3 | celery box</title>
+  <title>celery box</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="实际频率、角频率、圆周频率、归一化频率的关系梳理一下在信号处理学习中用到的各种频率">
+<meta property="og:type" content="article">
 <meta property="og:title" content="celery box">
-<meta property="og:url" content="http://example.com/archives/2022/03/index.html">
+<meta property="og:url" content="http://example.com/2022/03/25/%E5%AE%9E%E9%99%85%E9%A2%91%E7%8E%87%E3%80%81%E8%A7%92%E9%A2%91%E7%8E%87%E3%80%81%E5%9C%86%E5%91%A8%E9%A2%91%E7%8E%87%E3%80%81%E5%BD%92%E4%B8%80%E5%8C%96%E9%A2%91%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB/index.html">
 <meta property="og:site_name" content="celery box">
+<meta property="og:description" content="实际频率、角频率、圆周频率、归一化频率的关系梳理一下在信号处理学习中用到的各种频率">
 <meta property="og:locale">
+<meta property="og:image" content="https://md-image-1310519173.cos.ap-chengdu.myqcloud.com/image/%E9%A2%91%E7%8E%87%E8%BD%B4%E5%AE%9A%E6%A0%87.png">
+<meta property="og:image" content="https://md-image-1310519173.cos.ap-chengdu.myqcloud.com/image/s%E5%B9%B3%E9%9D%A2%E4%B8%8Ez%E5%B9%B3%E9%9D%A2.png">
+<meta property="article:published_time" content="2022-03-25T09:27:06.890Z">
+<meta property="article:modified_time" content="2022-03-25T09:22:04.000Z">
 <meta property="article:author" content="Celery">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://md-image-1310519173.cos.ap-chengdu.myqcloud.com/image/%E9%A2%91%E7%8E%87%E8%BD%B4%E5%AE%9A%E6%A0%87.png">
   
     <link rel="alternative" href="/atom.xml" title="celery box" type="application/atom+xml">
   
@@ -156,97 +163,196 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-实际频率、角频率、圆周频率、归一化频率的关系" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="实际频率、角频率、圆周频率、归一化频率的关系"><a href="#实际频率、角频率、圆周频率、归一化频率的关系" class="headerlink" title="实际频率、角频率、圆周频率、归一化频率的关系"></a>实际频率、角频率、圆周频率、归一化频率的关系</h1><p>梳理一下在信号处理学习中用到的各种频率</p>
+<span id="more"></span>
+
+<h2 id="1-概念引入"><a href="#1-概念引入" class="headerlink" title="1.概念引入"></a>1.概念引入</h2><p>​    对一连续正弦信号进行抽样得到一正弦序列<br>$$<br>x(n) &#x3D; x(t)|_{t&#x3D;nT_s}    \newline<br>x(n)&#x3D; Asin(\Omega nT_s + \varphi)   \newline<br>    x(n)&#x3D; Asin(2\pi fnT_s +\varphi )<br>$$</p>
+<ol>
+<li><p>f为实际频率，单位HZ</p>
+</li>
+<li><p>$\Omega &#x3D; 2\pi f$，单位为rad&#x2F;s，$\Omega$是相对连续信号的连续角频率变量，f由$ -\infty增加到+\infty 时$,$\Omega$也由 $-\infty增加至+\infty$。</p>
+</li>
+<li><p>$$<br>w &#x3D; 2\pi fT_s &#x3D; 2\pi f&#x2F;f_s,  \qquad f_s &#x3D; 1&#x2F;T_s<br>$$<br>$f_s$为抽样频率</p>
+<p>$\omega$称为为圆周频率或圆频率，单位为rad，是相对离散信号x(n)的频率变量</p>
+<p>$\omega$与f的对应关系，在后面对照s平面与z平面映射关系理解</p>
+</li>
+<li><p>$f’&#x3D;f&#x2F;f_s$称为为归一化频率，或相对频率</p>
+<p>当f由0变为$\pm f_s&#x2F;2时，f’由0变到\pm0.5$</p>
+<blockquote>
+<p><img src="https://md-image-1310519173.cos.ap-chengdu.myqcloud.com/image/%E9%A2%91%E7%8E%87%E8%BD%B4%E5%AE%9A%E6%A0%87.png"></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="2-s平面到z平面映射关系"><a href="#2-s平面到z平面映射关系" class="headerlink" title="2. s平面到z平面映射关系"></a>2. s平面到z平面映射关系</h2><blockquote>
+<p><img src="https://md-image-1310519173.cos.ap-chengdu.myqcloud.com/image/s%E5%B9%B3%E9%9D%A2%E4%B8%8Ez%E5%B9%B3%E9%9D%A2.png"></p>
+</blockquote>
+<blockquote>
+<p>拉普拉斯变量：$s&#x3D;\sigma+j\Omega$</p>
+<p>$z&#x3D;e^{sT_s}&#x3D;e^{(\sigma+j\Omega)T_s}&#x3D;e^{\sigma T_s}e^{j\Omega T_s}$</p>
+<p>令$\left{ \begin{array}{l}<br>r &#x3D; {e^{\sigma {T_s}}}\<br>\omega  &#x3D; \Omega {T_s}<br>\end{array} \right.$</p>
+<p>则 $z&#x3D;re^{j\omega}$</p>
+</blockquote>
+<ol>
+<li><p>当$\sigma&#x3D;0$时，$r&#x3D;1,\sigma&#x3D;0$对应s平面的$j\Omega$轴，而$\left| z \right| &#x3D; 1$对应z平面上半径为1的圆，这样s平面的$j\Omega$轴映射为z平面上的单位圆。</p>
+<p>同时，s仅在$j\Omega$轴上取值时，拉普拉斯变换即为傅里叶变换</p>
+<p>对应地，z仅在单位圆上取值时，Z变换即为傅里叶变换</p>
+</li>
+<li><p>$\sigma&lt;0$对应s平面的左半平面，对应的$r&#x3D;e^{\sigma T_s}&lt;1$，也即s平面映射到z平面的单位圆内。同理s平面的右半平面映射为z平面的单位圆外。</p>
+</li>
+<li><p>因为$\omega &#x3D; \Omega Ts &#x3D; 2\pi f&#x2F;f_s$,所以当f在在$j\Omega$上从$-\infty增至+\infty$过程中，每隔$f_s $，对应的$\omega从0变到2\pi$,即在单位圆上饶了一周（$可由z&#x3D;re^{j\Omega T_s}的周期性计算$），所以，由s平面到z平面的映射不是单一的，这就是离散信号的傅里叶变换是周期得根本原因。</p>
+</li>
+</ol>
+<p><strong>参考</strong></p>
+<ul>
+<li>胡广书 《数字信号处理》</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/25/%E5%AE%9E%E9%99%85%E9%A2%91%E7%8E%87%E3%80%81%E8%A7%92%E9%A2%91%E7%8E%87%E3%80%81%E5%9C%86%E5%91%A8%E9%A2%91%E7%8E%87%E3%80%81%E5%BD%92%E4%B8%80%E5%8C%96%E9%A2%91%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB/" class="archive-article-date">
-  	<time datetime="2022-03-25T09:27:06.890Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-25</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/03/25/%E5%AE%9E%E9%99%85%E9%A2%91%E7%8E%87%E3%80%81%E8%A7%92%E9%A2%91%E7%8E%87%E3%80%81%E5%9C%86%E5%91%A8%E9%A2%91%E7%8E%87%E3%80%81%E5%BD%92%E4%B8%80%E5%8C%96%E9%A2%91%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/23/C%E5%92%8C%E6%8C%87%E9%92%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-md/" class="archive-article-date">
-  	<time datetime="2022-03-23T11:27:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2022/03/23/C%E5%92%8C%E6%8C%87%E9%92%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-md/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">C和指针学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/23/C%E5%92%8C%E6%8C%87%E9%92%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-md/">C和指针学习笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%99%85%E9%A2%91%E7%8E%87%E3%80%81%E8%A7%92%E9%A2%91%E7%8E%87%E3%80%81%E5%9C%86%E5%91%A8%E9%A2%91%E7%8E%87%E3%80%81%E5%BD%92%E4%B8%80%E5%8C%96%E9%A2%91%E7%8E%87%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.</span> <span class="toc-text">实际频率、角频率、圆周频率、归一化频率的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E5%BF%B5%E5%BC%95%E5%85%A5"><span class="toc-number">1.1.</span> <span class="toc-text">1.概念引入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-s%E5%B9%B3%E9%9D%A2%E5%88%B0z%E5%B9%B3%E9%9D%A2%E6%98%A0%E5%B0%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.2.</span> <span class="toc-text">2. s平面到z平面映射关系</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2022/03/23/hello-world/" class="archive-article-date">
-  	<time datetime="2022-03-23T06:34:13.967Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-23</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/03/23/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -269,8 +375,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
